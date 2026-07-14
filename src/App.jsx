@@ -7,6 +7,7 @@ import { GitHubCalendar } from 'react-github-calendar';
 import * as THREE from 'three';
 import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
 import { MeshTransmissionMaterial, Environment, Float, ContactShadows } from '@react-three/drei';
+import portfolioData from '../data/portfolio.json';
 import './index.css';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -1312,12 +1313,7 @@ export default function App() {
   }, []);
 
   useEffect(() => {
-    fetch('/api/portfolio-data')
-      .then((r) => r.json())
-      .then(setData)
-      .catch(() => {
-        import('../data/portfolio.json').then((m) => setData(m.default));
-      });
+    setData(portfolioData);
   }, []);
 
   // Lenis smooth scroll
