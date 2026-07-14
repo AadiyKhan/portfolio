@@ -18,10 +18,11 @@ const SKILLS = [
   'GANs', '◆', 'BERT', '◆', 'OpenCV', '◆', 'Scikit-learn', '◆',
 ];
 
+const basePath = import.meta.env.BASE_URL;
 const PROJECT_IMAGES = {
-  'Transformer From Scratch': '/images/transformer.png',
-  'NADS — Anomaly Detection': '/images/nads.png',
-  'FlowBERT': '/images/flowbert.png',
+  'Transformer From Scratch': `${basePath}images/transformer.png`,
+  'NADS — Anomaly Detection': `${basePath}images/nads.png`,
+  'FlowBERT': `${basePath}images/flowbert.png`,
 };
 
 const ASCII_ART = [
