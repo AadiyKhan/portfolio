@@ -18,11 +18,14 @@ const SKILLS = [
   'GANs', '◆', 'BERT', '◆', 'OpenCV', '◆', 'Scikit-learn', '◆',
 ];
 
-const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+import imgTransformer from './assets/images/transformer.png';
+import imgNads from './assets/images/nads.png';
+import imgFlowbert from './assets/images/flowbert.png';
+
 const PROJECT_IMAGES = {
-  'Transformer From Scratch': `${basePath}/images/transformer.png`,
-  'NADS — Anomaly Detection': `${basePath}/images/nads.png`,
-  'FlowBERT': `${basePath}/images/flowbert.png`,
+  'Transformer From Scratch': imgTransformer,
+  'NADS — Anomaly Detection': imgNads,
+  'FlowBERT': imgFlowbert,
 };
 
 const ASCII_ART = [
@@ -288,7 +291,7 @@ function LanyardCard({ loaded, themeMode }) {
 
   // 1. Smooth GSAP Drop Animation
   useEffect(() => {
-    if (!loaded) return;
+    if (!loaded || !dropRef.current) return;
     // initial smooth drop from ceiling
     gsap.fromTo(dropRef.current, 
       { y: -1500 }, 
@@ -511,24 +514,35 @@ function Hero({ loaded, themeMode }) {
   const ref = useRef(null);
 
   useGSAP(() => {
-    if (!loaded) return;
+    if (!loaded || !ref.current) return;
     const el = ref.current;
-    if (!el) return;
 
     const tl = gsap.timeline({ delay: 0.1 });
+    const nameEls = el.querySelectorAll('.hero-name');
+    const taglineEl = el.querySelector('.hero-tagline');
+    const descEl = el.querySelector('.hero-desc');
+    const actionEls = el.querySelectorAll('.hero-actions > *');
 
-    tl.to(el.querySelectorAll('.hero-name'), {
-      y: '0%', duration: 1, stagger: 0.15, ease: 'power3.out',
-    });
-    tl.to(el.querySelector('.hero-tagline'), {
-      y: '0%', duration: 0.6, ease: 'power3.out',
-    }, '-=0.5');
-    tl.to(el.querySelector('.hero-desc'), {
-      y: '0%', duration: 0.6, ease: 'power3.out',
-    }, '-=0.3');
-    tl.to(el.querySelectorAll('.hero-actions > *'), {
-      y: '0%', duration: 0.5, stagger: 0.1, ease: 'power3.out',
-    }, '-=0.2');
+    if (nameEls.length) {
+      tl.to(nameEls, {
+        y: '0%', duration: 1, stagger: 0.15, ease: 'power3.out',
+      });
+    }
+    if (taglineEl) {
+      tl.to(taglineEl, {
+        y: '0%', duration: 0.6, ease: 'power3.out',
+      }, '-=0.5');
+    }
+    if (descEl) {
+      tl.to(descEl, {
+        y: '0%', duration: 0.6, ease: 'power3.out',
+      }, '-=0.3');
+    }
+    if (actionEls.length) {
+      tl.to(actionEls, {
+        y: '0%', duration: 0.5, stagger: 0.1, ease: 'power3.out',
+      }, '-=0.2');
+    }
   }, { scope: ref, dependencies: [loaded] });
 
   return (
@@ -717,10 +731,13 @@ function Projects({ data }) {
       animation: gsap.to(track, { x: () => -totalScroll, ease: 'none' }),
     });
 
-    gsap.fromTo('.project-card',
-      { y: 60, opacity: 0 },
-      { scrollTrigger: { trigger: section, start: 'top 60%' }, y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: 'power3.out' }
-    );
+    const cards = document.querySelectorAll('.project-card');
+    if (cards.length) {
+      gsap.fromTo(cards,
+        { y: 60, opacity: 0 },
+        { scrollTrigger: { trigger: section, start: 'top 60%' }, y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: 'power3.out' }
+      );
+    }
   }, { dependencies: [data] });
 
   return (
@@ -735,7 +752,7 @@ function Projects({ data }) {
             <div className="project-thumb">
               <Canvas camera={{ position: [0, 0, 5], fov: 75 }} style={{ width: '100%', height: '100%' }}>
                 <Suspense fallback={null}>
-                  <ProjectImage url={PROJECT_IMAGES[proj.name] || '/images/transformer.png'} />
+                  <ProjectImage url={PROJECT_IMAGES[proj.name] || imgTransformer} />
                 </Suspense>
               </Canvas>
             </div>
