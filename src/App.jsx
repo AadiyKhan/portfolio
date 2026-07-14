@@ -420,7 +420,7 @@ function LanyardCard({ loaded, themeMode }) {
   }, [loaded]);
 
   return (
-      <div id="lanyard-pivot" ref={dropRef} style={{ position: 'absolute', top: -50, right: '15%', width: 320, zIndex: 50, pointerEvents: 'none', transform: 'translateY(-1500px)' }}>
+      <div id="lanyard-pivot" className="lanyard-pivot" ref={dropRef} style={{ position: 'absolute', top: -50, right: '15%', width: 320, zIndex: 50, pointerEvents: 'none', transform: 'translateY(-1500px)' }}>
       <div 
         ref={swingRef} 
         style={{ width: '100%', transformOrigin: 'top center', display: 'flex', flexDirection: 'column', alignItems: 'center' }} 
@@ -549,7 +549,7 @@ function Hero({ loaded, themeMode }) {
   return (
     <section className="sect hero" id="home" ref={ref}>
       
-      <div style={{ position: 'relative', zIndex: 1, width: '50%', minWidth: '300px' }}>
+      <div className="hero-content">
         <div className="hero-name-wrap">
           <div className="hero-name gradient-text-1" style={{ transform: 'translateY(120%)' }}>Aadiy</div>
         </div>

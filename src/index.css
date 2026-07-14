@@ -138,6 +138,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 /* ─── HERO ─── */
 .hero { min-height: 100vh; display: flex; flex-direction: row; align-items: center; justify-content: flex-start; padding: 0 48px; position: relative; overflow: hidden; }
+.hero-content { position: relative; z-index: 1; width: 50%; min-width: 300px; }
 .hero-name-wrap { overflow: hidden; margin-bottom: 8px; }
 .hero-name { font-family: var(--sans); font-size: clamp(60px,14vw,180px); font-weight: 700; line-height: 0.9; letter-spacing: -0.05em; }
 
@@ -171,7 +172,14 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 .scroll-cue-line { width: 40px; height: 1px; background: var(--dim); position: relative; overflow: hidden; }
 .scroll-cue-line::after { content: ''; position: absolute; left: -100%; width: 100%; height: 100%; background: var(--accent); animation: slideRight 2s infinite; }
 @keyframes slideRight { 0% { left: -100%; } 50%,100% { left: 100%; } }
-@media (max-width:768px) { .hero { padding: 0 24px; } .scroll-cue { left: 24px; } }
+@media (max-width:992px) { 
+  .hero-content { width: 100%; z-index: 10; } 
+  .lanyard-pivot { display: none !important; }
+}
+@media (max-width:768px) { 
+  .hero { padding: 0 24px; } 
+  .scroll-cue { left: 24px; }
+}
 
 /* ─── MARQUEE ─── */
 .marquee { overflow: hidden; white-space: nowrap; padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(0,0,0,0.3); }
@@ -453,6 +461,11 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 }
 [data-theme='light'] .cursor-block { color: #111; }
 @keyframes blink { 50% { opacity: 0; } }
+
+@media (max-width:768px) {
+  .terminal-body { padding: 16px; font-size: 0.8rem; height: 350px; }
+  .term-input-line input { font-size: 0.9rem; }
+}
 
 /* Custom Scrollbar for Terminal */
 .terminal-body::-webkit-scrollbar { width: 8px; }
