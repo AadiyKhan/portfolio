@@ -1,0 +1,110 @@
+{
+  "projects": [
+    {
+      "name": "Transformer From Scratch",
+      "featured": true,
+      "status": "2026",
+      "visualSvg": "<svg viewBox=\"0 0 300 100\"><rect x=\"20\" y=\"30\" width=\"50\" height=\"40\" rx=\"4\" fill=\"none\" stroke=\"var(--acid)\" stroke-width=\"1.5\"/><rect x=\"125\" y=\"15\" width=\"50\" height=\"70\" rx=\"4\" fill=\"none\" stroke=\"var(--acid)\" stroke-width=\"1.5\"/><rect x=\"230\" y=\"30\" width=\"50\" height=\"40\" rx=\"4\" fill=\"none\" stroke=\"var(--acid)\" stroke-width=\"1.5\"/><line x1=\"70\" y1=\"50\" x2=\"125\" y2=\"50\" stroke=\"var(--violet)\" stroke-width=\"1.2\"/><line x1=\"175\" y1=\"50\" x2=\"230\" y2=\"50\" stroke=\"var(--violet)\" stroke-width=\"1.2\"/></svg>",
+      "desc": "Full \"Attention Is All You Need\" architecture, implemented line-by-line — Multi-Head Self-Attention, Positional Encoding, LayerNorm, residual connections, and complete encoder-decoder blocks, with zero reliance on high-level transformer libraries.",
+      "metrics": [
+        "6 encoder + 6 decoder layers",
+        "8 attention heads"
+      ],
+      "stack": ["PyTorch", "Transformers", "NLP"],
+      "links": [
+        { "label": "Code", "url": "https://github.com/AadiyKhan/AttentionIsAllYouNeed" },
+        { "label": "Live Demo", "url": "#" },
+        { "label": "Paper", "url": "#" },
+        { "label": "Write-up", "url": "#" }
+      ],
+      "arch": [
+        { "label": "Input", "tip": "Raw tokens enter the model." },
+        { "label": "Embedding", "tip": "Tokens mapped to dense vector representations." },
+        { "label": "Multi-Head Attention", "tip": "8 heads attend to different parts of the sequence in parallel." }
+      ]
+    },
+    {
+      "name": "NADS — Anomaly Detection",
+      "featured": false,
+      "status": "Feb 2026",
+      "visualSvg": "<svg viewBox=\"0 0 300 100\"><polyline points=\"10,80 40,60 70,70 100,30 130,45 160,20 190,35 220,15 250,25 280,10\" fill=\"none\" stroke=\"var(--acid)\" stroke-width=\"1.5\"/></svg>",
+      "desc": "End-to-end MLOps pipeline for real-time network anomaly detection. Trained an unsupervised Autoencoder on 2.5M+ CIC-IDS2017 flow records across 78 features, streamed through Kafka for low-latency inference.",
+      "metrics": [
+        "2.5M+ records",
+        "bottleneck autoencoder"
+      ],
+      "stack": ["TensorFlow", "Kafka", "Docker"],
+      "links": [
+        { "label": "Code", "url": "https://github.com/AadiyKhan/NADS" },
+        { "label": "Dashboard", "url": "#" }
+      ]
+    },
+    {
+      "name": "FlowBERT",
+      "featured": false,
+      "status": "Apr–May 2025",
+      "visualSvg": "<svg viewBox=\"0 0 300 100\"><circle cx=\"150\" cy=\"50\" r=\"30\" fill=\"none\" stroke=\"var(--violet)\" stroke-width=\"1.5\"/><circle cx=\"80\" cy=\"50\" r=\"16\" fill=\"none\" stroke=\"var(--acid)\" stroke-width=\"1.5\"/><circle cx=\"220\" cy=\"50\" r=\"16\" fill=\"none\" stroke=\"var(--acid)\" stroke-width=\"1.5\"/><line x1=\"96\" y1=\"50\" x2=\"120\" y2=\"50\" stroke=\"var(--acid)\"/><line x1=\"180\" y1=\"50\" x2=\"204\" y2=\"50\" stroke=\"var(--acid)\"/></svg>",
+      "desc": "Multi-task fine-tuned DistilBERT for simultaneous department classification + urgency prediction, cutting manual ticket triage effort by 75%.",
+      "metrics": [
+        "75% triage effort cut"
+      ],
+      "stack": ["DistilBERT", "TensorFlow", "Streamlit"],
+      "links": [
+        { "label": "Code", "url": "https://github.com/AadiyKhan/FlowBERT" },
+        { "label": "Live Demo", "url": "#" }
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "role": "Summer Intern — Computer Vision",
+      "date": "May 2026 — Present",
+      "org": "Ordnance Clothing Factory (OCF), Shahjahanpur · Ministry of Defence Summer Internship Program",
+      "desc": [
+        "Selected among undergraduate applicants nationwide for a Ministry of Defence-sponsored internship on AI-driven textile defect detection.",
+        "Building computer vision pipelines to identify tears, stains, stitching defects, and color inconsistencies on production fabric.",
+        "Applying image preprocessing, feature extraction, and deep learning for industrial quality inspection automation.",
+        "Collaborating directly with defense production engineers and QA teams on real manufacturing datasets."
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "IBM AI Engineer Professional Certificate",
+      "issuer": "IBM · Coursera",
+      "url": "#"
+    },
+    {
+      "name": "Deep Learning Specialization",
+      "issuer": "DeepLearning.AI",
+      "url": "#"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "2023",
+      "title": "Started B.Tech CS @ VIT Bhopal",
+      "desc": "First lines of Python, first \"hello world,\" first all-nighter."
+    },
+    {
+      "year": "2024",
+      "title": "OpenCV & classical ML projects",
+      "desc": "Built early computer vision projects, fell in love with the \"why does this work\" question."
+    },
+    {
+      "year": "2025",
+      "title": "Transformers, LLMs & FlowBERT",
+      "desc": "Reimplemented Attention Is All You Need, fine-tuned DistilBERT for ticket triage."
+    },
+    {
+      "year": "2026",
+      "title": "Ministry of Defence Internship",
+      "desc": "Selected for AI-driven textile defect detection at OCF Shahjahanpur."
+    },
+    {
+      "year": "2027",
+      "title": "Next: AI Engineer",
+      "desc": "Looking for full-time / research roles building real ML systems."
+    }
+  ]
+}
