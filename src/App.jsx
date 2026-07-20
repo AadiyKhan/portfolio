@@ -1148,10 +1148,16 @@ function Contact() {
     e.preventDefault();
     setSending(true);
     try {
-      await fetch('/api/contact', {
+      const formData = new URLSearchParams();
+      formData.append('form-name', 'contact');
+      formData.append('name', form.name);
+      formData.append('email', form.email);
+      formData.append('message', form.message);
+      
+      await fetch('/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: formData.toString(),
       });
       setSent(true);
       setForm({ name: '', email: '', message: '' });
@@ -1176,7 +1182,8 @@ function Contact() {
             <a href="https://linkedin.com/in/aadiykhan" target="_blank" rel="noopener noreferrer">→ linkedin.com/in/aadiykhan</a>
           </div>
         </div>
-        <form className="form-stack reveal" onSubmit={submit}>
+        <form className="form-stack reveal" name="contact" data-netlify="true" onSubmit={submit}>
+          <input type="hidden" name="form-name" value="contact" />
           {sent ? (
             <div style={{ padding: '40px 0', fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--cyan)' }}>
               Message sent. I'll be in touch. ✓
@@ -1185,17 +1192,17 @@ function Contact() {
             <>
               <div className="form-field">
                 <label>Name</label>
-                <input type="text" placeholder="Your name" value={form.name}
+                <input type="text" name="name" placeholder="Your name" value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })} required />
               </div>
               <div className="form-field">
                 <label>Email</label>
-                <input type="email" placeholder="your@email.com" value={form.email}
+                <input type="email" name="email" placeholder="your@email.com" value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })} required />
               </div>
               <div className="form-field">
                 <label>Message</label>
-                <textarea placeholder="What's on your mind?" value={form.message}
+                <textarea name="message" placeholder="What's on your mind?" value={form.message}
                   onChange={(e) => setForm({ ...form, message: e.target.value })} required />
               </div>
               <Magnetic>
