@@ -1126,7 +1126,7 @@ function CRTTerminal() {
 /* ═══ CONTACT ═══ */
 function Contact() {
   const ref = useRef(null);
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [form, setForm] = useState({ botField: '', name: '', email: '', message: '' });
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
@@ -1150,6 +1150,7 @@ function Contact() {
     try {
       const formData = new URLSearchParams();
       formData.append('form-name', 'contact');
+      formData.append('bot-field', form.botField);
       formData.append('name', form.name);
       formData.append('email', form.email);
       formData.append('message', form.message);
@@ -1163,7 +1164,7 @@ function Contact() {
         throw new Error('Network response was not ok');
       }
       setSent(true);
-      setForm({ name: '', email: '', message: '' });
+      setForm({ botField: '', name: '', email: '', message: '' });
     } catch (err) { console.error(err); }
     setSending(false);
   };
@@ -1187,6 +1188,12 @@ function Contact() {
         </div>
         <form className="form-stack reveal" name="contact" method="POST" data-netlify="true" onSubmit={submit}>
           <input type="hidden" name="form-name" value="contact" />
+          <p style={{ display: 'none' }}>
+            <label>
+              Don't fill this out if you're human: 
+              <input name="bot-field" value={form.botField} onChange={(e) => setForm({ ...form, botField: e.target.value })} />
+            </label>
+          </p>
           {sent ? (
             <div style={{ padding: '40px 0', fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--cyan)' }}>
               Message sent. I'll be in touch. ✓
