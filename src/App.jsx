@@ -1154,11 +1154,14 @@ function Contact() {
       formData.append('email', form.email);
       formData.append('message', form.message);
       
-      await fetch('/', {
+      const res = await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: formData.toString(),
       });
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
       setSent(true);
       setForm({ name: '', email: '', message: '' });
     } catch (err) { console.error(err); }
