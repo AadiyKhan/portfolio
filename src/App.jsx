@@ -1017,9 +1017,9 @@ function CRTTerminal() {
       { type: 'out', text: '[03] FlowBERT — Multi-task NLP, 75% triage effort reduction' },
     ],
     contact: () => [
-      { type: 'success', text: 'Email: aadiykhan.work@gmail.com' },
+      { type: 'success', text: 'Email: aadiykhan@gmail.com' },
       { type: 'success', text: 'GitHub: github.com/AadiyKhan' },
-      { type: 'success', text: 'LinkedIn: linkedin.com/in/aadiy-khan' },
+      { type: 'success', text: 'LinkedIn: linkedin.com/in/aadiykhan' },
     ],
     whoami: () => [{ type: 'success', text: 'A curious mind with a GPU and too many tabs open.' }],
     neofetch: () => [
@@ -1171,9 +1171,9 @@ function Contact() {
             or conversations about ML architecture and systems design.
           </p>
           <div className="contact-links">
-            <a href="mailto:aadiykhan.work@gmail.com">→ aadiykhan.work@gmail.com</a>
+            <a href="mailto:aadiykhan@gmail.com">→ aadiykhan@gmail.com</a>
             <a href="https://github.com/AadiyKhan" target="_blank" rel="noopener noreferrer">→ github.com/AadiyKhan</a>
-            <a href="https://linkedin.com/in/aadiy-khan" target="_blank" rel="noopener noreferrer">→ linkedin.com/in/aadiy-khan</a>
+            <a href="https://linkedin.com/in/aadiykhan" target="_blank" rel="noopener noreferrer">→ linkedin.com/in/aadiykhan</a>
           </div>
         </div>
         <form className="form-stack reveal" onSubmit={submit}>
@@ -1218,8 +1218,8 @@ function Footer() {
       <span>© 2026 Aadiy Khan</span>
       <div className="footer-links">
         <a href="https://github.com/AadiyKhan" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a href="https://linkedin.com/in/aadiy-khan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="mailto:aadiykhan.work@gmail.com">Email</a>
+        <a href="https://linkedin.com/in/aadiykhan" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:aadiykhan@gmail.com">Email</a>
       </div>
     </footer>
   );
