@@ -1185,7 +1185,7 @@ function Contact() {
             <a href="https://linkedin.com/in/aadiykhan" target="_blank" rel="noopener noreferrer">→ linkedin.com/in/aadiykhan</a>
           </div>
         </div>
-        <form className="form-stack reveal" name="contact" data-netlify="true" onSubmit={submit}>
+        <form className="form-stack reveal" name="contact" method="POST" data-netlify="true" onSubmit={submit}>
           <input type="hidden" name="form-name" value="contact" />
           {sent ? (
             <div style={{ padding: '40px 0', fontFamily: 'var(--mono)', fontSize: 14, color: 'var(--cyan)' }}>
