@@ -531,7 +531,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   justify-content: center;
   will-change: transform;
   transform-style: preserve-3d;
-  transform: rotateX(-12deg);
+  transform: rotateX(0deg);
 }
 
 /* The Grand Open Manuscript Book (Full Viewport Dimensions) */
