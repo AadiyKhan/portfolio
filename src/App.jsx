@@ -137,19 +137,6 @@ function SectionInterstitial({ tag, title, sub, diag, mode = 'scramble' }) {
         });
       }
     } 
-    else if (mode === 'inflate') {
-      // MODE 6: Inflating Elastic Text
-      if (chars.length) {
-        tl.fromTo(chars,
-          { scale: 0, opacity: 0, y: 100, rotateX: 90, filter: 'blur(10px)' },
-          { scale: 1.2, opacity: 1, y: 0, rotateX: 0, filter: 'blur(0px)', stagger: 0.05, duration: 0.5, ease: 'elastic.out(1.5, 0.4)' },
-          0
-        );
-        tl.to(chars, {
-          scale: 0, opacity: 0, y: -100, rotateX: -90, stagger: 0.03, duration: 0.35, ease: 'back.in(2)'
-        }, 0.65);
-      }
-    } 
     else if (mode === 'curtain') {
       // MODE 3: High-Contrast Solid Shutter Inversion (Double-door camera shutter)
       tl.fromTo(el,
@@ -247,10 +234,10 @@ function SectionInterstitial({ tag, title, sub, diag, mode = 'scramble' }) {
     <div className={`interstitial-sect mode-${mode}`} ref={ref}>
       <div className="interstitial-diag">{diag || 'LATENCY: 0.2ms // SECURE'}</div>
       <div className="interstitial-tag">{tag}</div>
-      <h2 className={(mode === 'curtain' || mode === 'slice' || mode === 'inflate') ? 'interstitial-title' : 'interstitial-title gradient-text-1'}>
-        {(mode === 'slice' || mode === 'inflate') ? (
+      <h2 className={(mode === 'curtain' || mode === 'slice') ? 'interstitial-title' : 'interstitial-title gradient-text-1'}>
+        {mode === 'slice' ? (
           title.split('').map((char, i) => (
-            <span key={i} className="char gradient-text-1">{char === ' ' ? '\u00A0' : char}</span>
+            <span key={i} className="char gradient-text-1">{char}</span>
           ))
         ) : (
           displayText
@@ -2133,7 +2120,7 @@ export default function App() {
       <Marquee />
 
       <SectionInterstitial 
-        mode="inflate"
+        mode="scramble"
         tag="[ SYSTEM INDEX ]" 
         title="WHO?" 
         sub="01 — AADIY KHAN" 
