@@ -1227,16 +1227,16 @@ function Timeline({ data }) {
         scrub: 0.6,
         onUpdate: (self) => {
           let step = 0;
-          if (self.progress < (3.0 / 12.0)) step = 0;
-          else if (self.progress < (5.0 / 12.0)) step = 1;
-          else if (self.progress < (7.0 / 12.0)) step = 2;
-          else if (self.progress < (9.0 / 12.0)) step = 3;
+          if (self.progress < (2.0 / 11.0)) step = 0;
+          else if (self.progress < (4.0 / 11.0)) step = 1;
+          else if (self.progress < (6.0 / 11.0)) step = 2;
+          else if (self.progress < (8.0 / 11.0)) step = 3;
           else step = 4;
           setActiveStep(step);
 
           // Real-time Tour Guide Head Marker Tracking
           if (path && head) {
-            const drawProgress = Math.max(0, Math.min(1, (self.progress * 12.0 - 1.0) / 11.0));
+            const drawProgress = Math.max(0, Math.min(1, (self.progress * 11.0) / 10.0));
             const pt = path.getPointAtLength(drawProgress * pathLength);
             head.setAttribute('cx', pt.x);
             head.setAttribute('cy', pt.y);
@@ -1250,36 +1250,33 @@ function Timeline({ data }) {
       tl.to(path, {
         strokeDashoffset: 0,
         ease: 'none',
-        duration: 11.0
-      }, 1.0);
+        duration: 10.0
+      }, 0);
     }
 
     // Smooth Reader-Centric Camera Zoom & Ink Line Trail Focus
-    // Intro: Start perfectly flat, then smoothly tilt into a grand 3D perspective
-    tl.to(canvas, { rotateX: -14, rotateY: 2, rotateZ: 2, scale: 0.9, ease: 'power2.inOut', duration: 1.0 }, 0)
-
     // Chapter 01 (2023 - Top Left)
-      .to(canvas, { scale: 1.28, xPercent: 22, yPercent: 20, rotateZ: -1, rotateX: -8, rotateY: 4, ease: 'power2.inOut', duration: 1.0 }, 1.0)
-      .to(canvas, { scale: 1.28, xPercent: 22, yPercent: 20, rotateZ: -1, rotateX: -8, rotateY: 4, ease: 'none', duration: 1.0 }, 2.0)
+    tl.to(canvas, { scale: 1.28, xPercent: 22, yPercent: 20, rotateZ: -1, rotateX: -8, rotateY: 4, ease: 'power2.inOut', duration: 1.0 }, 0)
+      .to(canvas, { scale: 1.28, xPercent: 22, yPercent: 20, rotateZ: -1, rotateX: -8, rotateY: 4, ease: 'none', duration: 1.0 }, 1.0)
 
     // Chapter 02 (2024 - Bottom Left)
-      .to(canvas, { scale: 1.28, xPercent: 22, yPercent: -20, rotateZ: 1, rotateX: -10, rotateY: 3, ease: 'power2.inOut', duration: 1.0 }, 3.0)
-      .to(canvas, { scale: 1.28, xPercent: 22, yPercent: -20, rotateZ: 1, rotateX: -10, rotateY: 3, ease: 'none', duration: 1.0 }, 4.0)
+      .to(canvas, { scale: 1.28, xPercent: 22, yPercent: -20, rotateZ: 1, rotateX: -10, rotateY: 3, ease: 'power2.inOut', duration: 1.0 }, 2.0)
+      .to(canvas, { scale: 1.28, xPercent: 22, yPercent: -20, rotateZ: 1, rotateX: -10, rotateY: 3, ease: 'none', duration: 1.0 }, 3.0)
 
     // Chapter 03 (2025 - Top Right)
-      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: 22, rotateZ: -1, rotateX: -8, rotateY: -4, ease: 'power2.inOut', duration: 1.0 }, 5.0)
-      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: 22, rotateZ: -1, rotateX: -8, rotateY: -4, ease: 'none', duration: 1.0 }, 6.0)
+      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: 22, rotateZ: -1, rotateX: -8, rotateY: -4, ease: 'power2.inOut', duration: 1.0 }, 4.0)
+      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: 22, rotateZ: -1, rotateX: -8, rotateY: -4, ease: 'none', duration: 1.0 }, 5.0)
 
     // Chapter 04 (2026 - Middle Right)
-      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: 0, rotateZ: 1, rotateX: -10, rotateY: -3, ease: 'power2.inOut', duration: 1.0 }, 7.0)
-      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: 0, rotateZ: 1, rotateX: -10, rotateY: -3, ease: 'none', duration: 1.0 }, 8.0)
+      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: 0, rotateZ: 1, rotateX: -10, rotateY: -3, ease: 'power2.inOut', duration: 1.0 }, 6.0)
+      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: 0, rotateZ: 1, rotateX: -10, rotateY: -3, ease: 'none', duration: 1.0 }, 7.0)
 
     // Chapter 05 (2027 - Bottom Right)
-      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: -22, rotateZ: -0.5, rotateX: -12, rotateY: -2, ease: 'power2.inOut', duration: 1.0 }, 9.0)
-      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: -22, rotateZ: -0.5, rotateX: -12, rotateY: -2, ease: 'none', duration: 1.0 }, 10.0)
+      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: -22, rotateZ: -0.5, rotateX: -12, rotateY: -2, ease: 'power2.inOut', duration: 1.0 }, 8.0)
+      .to(canvas, { scale: 1.28, xPercent: -22, yPercent: -22, rotateZ: -0.5, rotateX: -12, rotateY: -2, ease: 'none', duration: 1.0 }, 9.0)
 
-    // Pull back smoothly to grand 3D overview revealing the complete manuscript spread!
-      .to(canvas, { scale: 1.0, xPercent: 0, yPercent: 0, rotateZ: 0, rotateX: 0, rotateY: 0, ease: 'power2.inOut', duration: 1.0 }, 11.0);
+    // Pull back smoothly to 2D overview revealing the complete manuscript spread!
+      .to(canvas, { scale: 1.0, xPercent: 0, yPercent: 0, rotateZ: 0, rotateX: 0, rotateY: 0, ease: 'power2.inOut', duration: 1.0 }, 10.0);
 
     return () => {
       if (tl.scrollTrigger) tl.scrollTrigger.revert();
