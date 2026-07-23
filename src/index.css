@@ -1648,3 +1648,6 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   color: var(--mono-sub, #888888);
   text-transform: uppercase;
 }
+/* 
+  MOBILE MANUSCRIPT FALLBACK
+*/
